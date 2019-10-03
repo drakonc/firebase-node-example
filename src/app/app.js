@@ -1,6 +1,7 @@
 const express = require("express");
 const morgan = require('morgan');
 const exphbs = require('express-handlebars');
+const favicon = require('serve-favicon');
 const path = require('path')
 
 //import routes
@@ -9,6 +10,7 @@ const irouter = require('./routes/index');
 const app = express();
 
 // settings
+app.use(favicon(path.join(__dirname, 'public','img','apple-icon-57x57.ico')))
 app.set('port', process.env.PORT || 3000);
 app.set('views',path.join(__dirname,'views'));
 app.engine('.hbs',exphbs({
